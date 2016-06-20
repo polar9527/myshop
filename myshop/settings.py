@@ -106,14 +106,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
 
-# email
+# E-mail
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+with open(os.path.join(BASE_DIR, 'passwd')) as f:
+    secretKey = f.read().strip()
+
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_HOST_USER = 'polar9527@163.com'
+EMAIL_HOST_PASSWORD = secretKey
+EMAIL_PORT = 25
+EMAIL_USE_TLS = True
 
 # django-paypal settings
 PAYPAL_RECEIVER_EMAIL = 'polar9527@gmail.com'
