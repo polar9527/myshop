@@ -56,4 +56,3 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(forwards_func, backwards_func),
     ]
-
